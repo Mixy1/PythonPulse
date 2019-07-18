@@ -5,7 +5,7 @@ from socket import *
 # Save as client.py
 # Message Sender
 
-host = "10.62.14.218"  # set to IP address of target computer
+host = "10.68.104.104"  # set to IP address of target computer
 port = 5000
 selfed = "10.68.107.45"
 addr = (host, port)
@@ -16,10 +16,14 @@ buf = 1024
 
 while True:      
     data = input("Enter message to send or type 'exit': ").encode()
-    UDPSock.sendto(data, addr)
 
     if data.decode().lower() == "exit":
         break
+
+    UDPSock.sendto(data, addr)
+
+    
+
     (data, addr) = UDPSock.recvfrom(buf)
     print(data.decode())
 
