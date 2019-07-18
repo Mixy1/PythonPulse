@@ -7,13 +7,14 @@ port = 5000
 buf = 1024
 addr = (host, port)
 UDPSock = socket(AF_INET, SOCK_DGRAM)
-UDPSock.bind(addr)
 print("Waiting to receive messages...")
 
 
 while True:
-    (data,selfadrs, addr) = UDPSock.recvfrom(buf)
-    
+    rec, addr = UDPSock.recvfrom(buf)
+    rec = pickle.loads(rec)
+    data = rec[0]
+    selfadrs = rec[1]
     if(selfadrs == contacts[0]):
         addr = (contacts[1], port)
         UDPSock.bind(addr)

@@ -19,8 +19,9 @@ while True:
 
     if data.decode().lower() == "exit":
         break
-
-    UDPSock.sendto(data,selfadrs,addr)
+    send = [data,selfadrs]
+    send = pickle.dumps(send)
+    UDPSock.sendto(send,addr)
 
     
     (data,selfadrs, addr) = UDPSock.recvfrom(buf)
