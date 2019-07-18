@@ -9,6 +9,7 @@ host = "10.68.107.45"  # set to IP address of target computer
 port = 5000
 addr = (host, port)
 UDPSock = socket(AF_INET, SOCK_DGRAM)
+buf = 1024
 
 
 while True:      
@@ -17,6 +18,8 @@ while True:
 
     if data.decode().lower() == "exit":
         break
+    (data, addr) = UDPSock.recvfrom(buf)
+    print(data.decode())
 
 #Done
 

@@ -14,11 +14,10 @@ print("Waiting to receive messages...")
 
 while True:
     (data, addr) = UDPSock.recvfrom(buf)
-    data = data.decode()
-    if(addr = contacts[0]):
+    if(addr == contacts[0]):
         addr = (contacts[1], port)
         UDPSock.sendto(data, addr)
-    elif(addr = contacts[1]):
+    elif(addr == contacts[1]):
         addr = (contacts[0], port)
         UDPSock.sendto(data, port)
 
