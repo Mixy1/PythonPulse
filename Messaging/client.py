@@ -7,9 +7,10 @@ from socket import *
 
 host = "10.62.14.218"  # set to IP address of target computer
 port = 5000
+selfed = "10.68.107.45"
 addr = (host, port)
 UDPSock = socket(AF_INET, SOCK_DGRAM)
-UDPSock.bind(addr)
+
 buf = 1024
 
 
