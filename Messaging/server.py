@@ -17,11 +17,9 @@ while True:
     selfadrs = rec[1]
     if(selfadrs == contacts[0]):
         addr = (contacts[1], port)
-        UDPSock.bind(addr)
         UDPSock.sendto(data, addr)
     elif(selfadrs == contacts[1]):
         addr = (contacts[0], port)
-        UDPSock.bind(addr)
         UDPSock.sendto(data, port)
 
 
