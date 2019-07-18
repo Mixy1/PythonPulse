@@ -1,5 +1,4 @@
 import os
-from pynput.keyboard import Key, Controller
 from socket import *
 import pickle
 host = ""

@@ -5,7 +5,7 @@ from socket import *
 # Save as client.py
 # Message Sender
 
-host = "10.68.107.45"  # set to IP address of target computer
+host = "10.62.14.218"  # set to IP address of target computer
 port = 5000
 addr = (host, port)
 UDPSock = socket(AF_INET, SOCK_DGRAM)
