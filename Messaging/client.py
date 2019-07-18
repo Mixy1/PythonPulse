@@ -7,10 +7,10 @@ from socket import *
 
 host = "10.62.14.218"  # set to IP address of target computer
 port = 5000
-selfadrs = "10.68.104.104"
+selfadrs = "10.68.107.45"
 addr = (host, port)
 UDPSock = socket(AF_INET, SOCK_DGRAM)
-UDPSock.bind(addr)
+
 buf = 1024
 
 
@@ -19,8 +19,9 @@ while True:
 
     if data.decode().lower() == "exit":
         break
-
-    UDPSock.sendto(data,selfadrs,addr)
+    send = [data,selfadrs]
+    send = pickle.dumps(send)
+    UDPSock.sendto(send,addr)
 
     
     (data,selfadrs, addr) = UDPSock.recvfrom(buf)
