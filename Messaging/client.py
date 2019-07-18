@@ -24,7 +24,9 @@ while True:
     UDPSock.sendto(send,addr)
 
     
-    (data,selfadrs, addr) = UDPSock.recvfrom(buf)
+    rec, addr = UDPSock.recvfrom(buf)
+    rec = pickle.loads(rec)
+    data = rec[0]
     print(data.decode())
 
 #Done
