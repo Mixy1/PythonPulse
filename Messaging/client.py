@@ -1,7 +1,6 @@
 import sys
 import os
 import pickle
-import multiprocessing
 from socket import *
 # Save as client.py
 # Message Sender
@@ -11,12 +10,17 @@ port = 5000
 addr = (host, port)
 UDPSock = socket(AF_INET, SOCK_DGRAM)
 
-while True:
+
+while True:      
     data = input("Enter message to send or type 'exit': ").encode()
     UDPSock.sendto(data, addr)
 
     if data.decode().lower() == "exit":
         break
+
+#Done
+
+
 
 UDPSock.close()
 os._exit(0)
