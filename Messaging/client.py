@@ -5,9 +5,9 @@ from socket import *
 # Save as client.py
 # Message Sender
 
-host = "10.68.104.104"  # set to IP address of target computer
+host = "10.62.14.218"  # set to IP address of target computer
 port = 5000
-selfed = "10.68.107.45"
+selfadrs = "10.68.107.45"
 addr = (host, port)
 UDPSock = socket(AF_INET, SOCK_DGRAM)
 
@@ -20,11 +20,10 @@ while True:
     if data.decode().lower() == "exit":
         break
 
-    UDPSock.sendto(data, addr)
+    UDPSock.sendto(data,selfadrs,addr)
 
     
-
-    (data, addr) = UDPSock.recvfrom(buf)
+    (data,selfadrs, addr) = UDPSock.recvfrom(buf)
     print(data.decode())
 
 #Done
