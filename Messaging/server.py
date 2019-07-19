@@ -20,7 +20,7 @@ while True:
         UDPSock.sendto(data, addr)
     elif(selfadrs == contacts[1]):
         addr = (contacts[0], port)
-        UDPSock.sendto(data, port)
+        UDPSock.sendto(data, addr)
 
 
 
